@@ -1,0 +1,20 @@
+<form class="form-signin" #formLogin="ngForm" (ngSubmit)="onLogin">
+    <div class="text-center mb-4">
+      <img class="mb-4" src="/docs/4.2/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+      
+    </div>
+  
+    <div class="form-label-group">
+      <input type="email" id="email" name="email"  [(ngModel)]="user.email" required="" class="form-control" placeholder="Email address">
+      <label for="inputEmail">Email address</label>
+    </div>
+  
+    <div class="form-label-group">
+      <input type="password" id="password" name="password" [(ngModel)]="user.password" required="" class="form-control" placeholder="Password" >
+      <label for="inputPassword">Password</label>
+    </div>
+  
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+    
+  </form>
