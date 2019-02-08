@@ -14,7 +14,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   headers: HttpHeaders = new HttpHeaders({
-    "Content-Type": "aplication/json"
+    "Content-Type": "application/json"
   });
 
   /*registerUser(name: string, email: string, password: string){ no esta considerado en las especificaciones
@@ -22,10 +22,10 @@ export class AuthService {
   }*/
 
   loginUser(email: string, password: string): Observable<any> {
+    
     const url_api = "http://127.0.0.1:8000/api/auth/login";
     
-    return this.http.post<UserInterface>(url_api, {email, password}, {headers: this.headers})
-    .pipe(map(data => data));
+    return this.http.post(url_api, {email, password}, {headers: this.headers}).pipe(map(data => data));
   }
 
   setUser(user: UserInterface){
@@ -41,10 +41,10 @@ export class AuthService {
     return localStorage.getItem('accessToken');
   }
 
-  getCurrentUser():UserInterface{
+  getCurrentUser(): UserInterface {
     let user_string = localStorage.getItem('currentUser');
 
-    if(isNullOrUndefined(user_string)){
+    if(!isNullOrUndefined(user_string)){
       let user: UserInterface = JSON.parse(user_string);
       return user;
     }else{
@@ -54,7 +54,7 @@ export class AuthService {
 
   logoutUser(){
     let accessToken = localStorage.getItem('accessToken');
-    const url_api = "http://127.0.0.1:8000/api/auth/logout"; //TODO service auth login user angular 6 min 16:00
+    const url_api = `http://127.0.0.1:8000/api/auth/logout?access_token=${accessToken}` ; //TODO service auth login user angular 6 min 16:00
 
     localStorage.removeItem('accessToken');
     localStorage.removeItem('currentUser');

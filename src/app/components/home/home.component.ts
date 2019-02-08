@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataApiService } from '../../services/data-api.service';
 import { EventInterface } from '../../models/event-interface';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({

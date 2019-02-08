@@ -20,13 +20,13 @@ export class DataApiService {
 
   headers: HttpHeaders = new HttpHeaders ({
     "Content-Type": "aplication/jason",
-    Authorization: this.authService.getToken()
+    Authorization: "Bearer " + this.authService.getToken()
   });
 
   getAllEvent() {
     const url_api = 'http://127.0.0.1:8000/api/events';
     
-    return this.http.get(url_api);
+    return this.http.get(url_api, {headers: this.headers});
   }
 
   getEventById(slug: string){
