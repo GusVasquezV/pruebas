@@ -19,7 +19,7 @@ export class DataApiService {
   event: Observable<any>;
 
   headers: HttpHeaders = new HttpHeaders ({
-    "Content-Type": "aplication/jason",
+    "Content-Type": "aplication/json",
     Authorization: "Bearer " + this.authService.getToken()
   });
 

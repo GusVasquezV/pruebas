@@ -7,6 +7,7 @@ import { ProfileComponent } from './components/user/profile/profile.component';
 import { Page404Component } from './components/page404/page404.component';
 import { EventComponent } from './components/event/event.component';
 import { DetailsEventComponent } from './components/details-event/details-event.component';
+import { InscritosComponent } from './components/inscritos/inscritos.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'user/profile', component: ProfileComponent},
   {path: 'event', component: EventComponent},
   {path: 'event/:slug', component: DetailsEventComponent},
+  {path: 'inscritos', component: InscritosComponent},
   {path: '**', component: Page404Component}
 ];
 
